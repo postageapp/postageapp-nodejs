@@ -2,10 +2,10 @@
     "name": "postageapp",
     "version": "0.0.1",
     "node": ">= 0.4.0",
-    "homepage": "",
+    "homepage": "https://github.com/postageapp/postageapp-nodejs",
     "repository": {
     	"type":"git", 
-    	"url":""
+    	"url":"https://github.com/postageapp/postageapp-nodejs"
     },
     "author": {"name":"PostageApp", "url":"http://postageapp.com"},
     "contributors": [{"name":"Jon Lim", "email": "jon@postageapp.com", "url":"http://postageapp.com"}],

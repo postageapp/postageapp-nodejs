@@ -53,7 +53,8 @@ If you wish to set Message Variables for each individual recipient, you just hav
 	    }, 
 	    "email2@example.com": {
 		    'variable': 'Another Value'
-	    }};
+	    }
+	};
     
 Content will accept an array for HTML and plain text content. If it is a string, it will assume that you are naming a template.
 
@@ -80,4 +81,4 @@ Message Variables needs to have an array passed into it with the variable names 
     	'variable2': 'Another variable'
     };
     
-For more information about formatting of recipients, templates and variables please see [documentation](http://help.postageapp.com/kb/api/send_message)
+For more information about formatting of recipients, templates and variables please see the [PostageApp documentation](http://help.postageapp.com/kb/api/send_message).
