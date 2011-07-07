@@ -9,6 +9,11 @@ Personalized transactional email sending can be offloaded to PostageApp via the 
 Installation
 ------------
 
+_Node Package Manager_
+
+In your app directory type
+`npm install postageapp`
+
 _Manual_
 
 - Download this: https://github.com/JonLim/postageapp-nodejs/tarball/master
@@ -28,11 +33,6 @@ _GIT Clone_
 
 In your `node_modules` directory type
 <pre><code>git clone git@github.com:JonLim/postageapp-nodejs.git postage</code></pre>
-
-_Node Package Manager_
-
-In your app directory type
-`npm install postageapp`
 
 Usage
 -----
