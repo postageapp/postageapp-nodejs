@@ -36,6 +36,11 @@ In your app directory type
 
 Usage
 -----
+Add your PostageApp Project API key to `lib/postageapp.js':
+
+    var apiKey = 'API KEY HERE';
+    
+After that, you should be good to go. Load the module in your app and call the `apiCall` function. Here is a sample of how to use it:
 
     var postageapp = require('postageapp');
     postageapp.apiCall(recipients, content, subject, from, variables);
