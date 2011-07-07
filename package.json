@@ -1,6 +1,7 @@
 {
     "name": "postageapp",
     "version": "0.0.1",
+    "node": ">= 0.4.0",
     "homepage": "",
     "repository": {
     	"type":"git", 
