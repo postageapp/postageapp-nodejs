@@ -36,13 +36,13 @@ In your `node_modules` directory type
 
 Usage
 -----
-Add your PostageApp Project API key to `lib/postageapp.js':
+When you require the library, make sure to specify your API key:
 
-    var apiKey = 'API KEY HERE';
+    var postageapp = require('postageapp')('YOUR API KEY HERE');
     
-After that, you should be good to go. Load the module in your app and call the `apiCall` function. Here is a sample of how to use it:ter
+After that, you should be good to go. Load the module in your app and call the `apiCall` function. Here is a sample of how to use it:
 
-    var postageapp = require('postageapp');
+    var postageapp = require('postageapp')('YOUR API KEY HERE');
     postageapp.apiCall(recipients, content, subject, from, variables);
     
 Recipients can be passed along as a single string or as an array.
