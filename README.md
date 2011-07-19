@@ -16,7 +16,7 @@ In your app directory type
 
 _Manual_
 
-- Download this: https://github.com/JonLim/postageapp-nodejs/tarball/master
+- Download this: https://github.com/postageapp/postageapp-nodejs/tarball/master
 - Unzip that download.
 - Copy the resulting folder to `node_modules`
 - Rename the folder you just copied to `postageapp`
@@ -24,7 +24,7 @@ _Manual_
 _GIT Submodule_
 
 In your app directory type:
-<pre><code>git submodule add git@github.com:JonLim/postageapp-nodejs.git plugins/postage
+<pre><code>git submodule add git@github.com:postageapp/postageapp-nodejs.git plugins/postage
 git submodule init
 git submodule update
 </code></pre>
@@ -32,7 +32,7 @@ git submodule update
 _GIT Clone_
 
 In your `node_modules` directory type
-<pre><code>git clone git@github.com:JonLim/postageapp-nodejs.git postage</code></pre>
+<pre><code>git clone git@github.com:postageapp/postageapp-nodejs.git postage</code></pre>
 
 Usage
 -----
