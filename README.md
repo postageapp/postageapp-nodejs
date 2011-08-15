@@ -45,6 +45,8 @@ After that, you should be good to go. Load the module in your app and call the `
     var postageapp = require('postageapp')('YOUR API KEY HERE');
     postageapp.sendMessage(options);
 
+**NOTE:** The function has been renamed to `sendMessage()` so that this plugin will be more flexible going forward, for when we expand the API.
+
 The `options` parameter on the `sendMessage()` function is a hash that contains all of the arguments that you will be using in your API call. Here is an example API call:
 
 		var options = { 
