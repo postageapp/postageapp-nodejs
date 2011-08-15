@@ -34,54 +34,64 @@ _GIT Clone_
 In your `node_modules` directory type
 <pre><code>git clone git@github.com:postageapp/postageapp-nodejs.git postage</code></pre>
 
-Usage
+Sending a Message
 -----
 When you require the library, make sure to specify your API key:
 
     var postageapp = require('postageapp')('YOUR API KEY HERE');
     
-After that, you should be good to go. Load the module in your app and call the `apiCall` function. Here is a sample of how to use it:
+After that, you should be good to go. Load the module in your app and call the `sendMessage` function. Here is a sample of how to use it:
 
     var postageapp = require('postageapp')('YOUR API KEY HERE');
-    postageapp.apiCall(recipients, content, subject, from, variables);
+    postageapp.sendMessage(options);
+
+The `options` parameter on the `sendMessage()` function is a hash that contains all of the arguments that you will be using in your API call. Here is an example API call:
+
+		var options = { 
+    	recipients: "email@address.com",
+
+			subject: "Subject Line",
+      from: "sender@example.org",
+    
+    	content: {
+	    	'text/html': '<strong>Sample bold content.</strong>',
+	    	'text/plain': 'Plain text goes here'
+	    }
+    }
+
+You can use any of the arguments available to [send_message.json](http://help.postageapp.com/kb/api/send_message) when creating this hash.
     
 Recipients can be passed along as a single string or as an array.
 
-    recipients = "email@address.com";
-    recipients = ["email1@address.com", "email2@address.com"];
+    recipients: "email@address.com";
+    recipients: ["email1@address.com", "email2@address.com"];
     
 If you wish to set Message Variables for each individual recipient, you just have to pass an array for each recipient.
 
-    recipients = {
+    recipients: {
 	    "email@example.com": {
 		    'variable': 'Value'
 	    }, 
 	    "email2@example.com": {
 		    'variable': 'Another Value'
 	    }
-	};
+		};
     
-Content will accept an array for HTML and plain text content. If it is a string, it will assume that you are naming a template.
+Content will accept an array for HTML and plain text content.
 
-    content = {
+    content: {
     	'text/html': '<strong>Sample bold content.</strong>',
     	'text/plain': 'Plain text goes here'
     };
-    content = 'TEMPLATE_NAME';
     
 Subject and from can be simple strings.
 
-    subject = 'Subject Title';
-    from = 'sender@example.org';
-
-If you are using a template name with defined subject and from values, just set these to null.
-
-	subject = null;
-	from = null;
+    subject: 'Subject Line';
+    from: 'sender@example.org';
 	
-Message Variables needs to have an array passed into it with the variable names and values.
+Message Variables needs to have an array passed into it with the global variable names and values.
 
-    variables = {
+    variables: {
     	'variable': 'Variable value',
     	'variable2': 'Another variable'
     };
