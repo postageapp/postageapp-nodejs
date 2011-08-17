@@ -49,17 +49,17 @@ After that, you should be good to go. Load the module in your app and call the `
 
 The `options` parameter on the `sendMessage()` function is a hash that contains all of the arguments that you will be using in your API call. Here is an example API call:
 
-    var options = { 
-    	recipients: "email@address.com",
+	var options = { 
+		recipients: "email@address.com",
 
-			subject: "Subject Line",
-      from: "sender@example.org",
-    
-    	content: {
-	    	'text/html': '<strong>Sample bold content.</strong>',
-	    	'text/plain': 'Plain text goes here'
-	    }
-    }
+		subject: "Subject Line",
+		from: "sender@example.org",
+
+		content: {
+			'text/html': '<strong>Sample bold content.</strong>',
+			'text/plain': 'Plain text goes here'
+		}
+	}
 
 You can use any of the arguments available to [send_message.json](http://help.postageapp.com/kb/api/send_message) when creating this hash.
     
