@@ -90,6 +90,10 @@ Subject and from can be simple strings.
 
     subject: 'Subject Line';
     from: 'sender@example.org';
+    
+Templates can be called by using the template slug from your PostageApp Projects.
+
+	template: 'sample_template';
 	
 Message Variables needs to have an array passed into it with the global variable names and values.
 
