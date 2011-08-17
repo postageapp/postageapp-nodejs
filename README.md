@@ -77,7 +77,7 @@ If you wish to set Message Variables for each individual recipient, you just hav
 	    "email2@example.com": {
 		    'variable': 'Another Value'
 	    }
-		};
+    };
     
 Content will accept an array for HTML and plain text content.
 
