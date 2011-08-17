@@ -49,7 +49,7 @@ After that, you should be good to go. Load the module in your app and call the `
 
 The `options` parameter on the `sendMessage()` function is a hash that contains all of the arguments that you will be using in your API call. Here is an example API call:
 
-		var options = { 
+    var options = { 
     	recipients: "email@address.com",
 
 			subject: "Subject Line",
