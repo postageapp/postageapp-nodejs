@@ -32,7 +32,7 @@ git submodule update
 _GIT Clone_
 
 In your `node_modules` directory type
-<pre><code>git clone git@github.com:postageapp/postageapp-nodejs.git postage</code></pre>
+<pre><code>git clone git@github.com:postageapp/postageapp-nodejs.git postageapp</code></pre>
 
 Sending a Message
 -----
