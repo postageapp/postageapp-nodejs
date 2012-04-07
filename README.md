@@ -43,9 +43,7 @@ When you require the library, make sure to specify your API key:
 After that, you should be good to go. Load the module in your app and call the `sendMessage` function. Here is a sample of how to use it:
 
     var postageapp = require('postageapp')('YOUR API KEY HERE');
-    postageapp.sendMessage(options);
-
-**NOTE:** The function has been renamed to `sendMessage()` so that this plugin will be more flexible going forward, for when we expand the API.
+    postageapp.sendMessage(options, function callback() {});
 
 The `options` parameter on the `sendMessage()` function is a hash that contains all of the arguments that you will be using in your API call. Here is an example API call:
 
@@ -101,5 +99,40 @@ Message Variables needs to have an array passed into it with the global variable
     	'variable': 'Variable value',
     	'variable2': 'Another variable'
     };
+
+Using the Callback Function
+-----
+The `sendMessage()` function in the PostageApp Node.JS plugin includes a callback argument. Callbacks are used to tell the PostageApp Node.JS plugin to execute some other code as soon as it is finished with sending your emails to PostageApp.
+
+    var postageapp = require('postageapp')('YOUR API KEY HERE');
+    postageapp.sendMessage(options, function callback() {
+      // Additional code to execute after mail is delivered
+    });
+    
+Getting Account Info
+-----
+You can get your PostageApp account info through the Node.JS plugin by using the `acountInfo()` function, which can be used as such:
+
+    var postageapp = require('postageapp')('YOUR API KEY HERE');
+    postageapp.accountInfo();
+
+You can take a look at the documentation for [get_account_info.json](http://help.postageapp.com/kb/api/get_account_info) to learn about the typical response from the API server.
+
+Getting Message Status
+-----
+You can the status of an individual message sent through PostageApp using the UID that your API call provides. The PostageApp Node.JS plugin creates a unique UID for each message sent through by using `Date.getTime()`. You then use that UID in `messageStatus()`.
+
+    var postageapp = require('postageapp')('YOUR API KEY HERE');
+    postageapp.messageStatus(options);
+
+The `options` parameter in the `messageStatus()` function is a hash that contains one thing: the UID of the message you wish you retrieve.
+
+    var options = { 
+      	desiredUID: 'message UID here',
+    }
+
+You will receive a JSON string back from the API server that should look something like this:
+
+    {"response":{"status":"ok","uid":"message UID here"},"data":{"message_status":{"completed":1}}}
     
 For more information about formatting of recipients, templates and variables please see the [PostageApp documentation](http://help.postageapp.com/kb/api/send_message).
