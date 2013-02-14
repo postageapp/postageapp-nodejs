@@ -39,7 +39,7 @@ Sending a Message
 When you require the library, make sure to specify your API key:
 
     var postageapp = require('postageapp')('YOUR API KEY HERE');
-    
+
 After that, you should be good to go. Load the module in your app and call the `sendMessage` function. Here is a sample of how to use it:
 
     var postageapp = require('postageapp')('YOUR API KEY HERE');
@@ -47,7 +47,7 @@ After that, you should be good to go. Load the module in your app and call the `
 
 The `options` parameter on the `sendMessage()` function is a hash that contains all of the arguments that you will be using in your API call. Here is an example API call:
 
-	var options = { 
+	var options = {
 		recipients: "email@address.com",
 
 		subject: "Subject Line",
@@ -60,39 +60,39 @@ The `options` parameter on the `sendMessage()` function is a hash that contains 
 	}
 
 You can use any of the arguments available to [send_message.json](http://help.postageapp.com/kb/api/send_message) when creating this hash.
-    
+
 Recipients can be passed along as a single string or as an array.
 
     recipients: "email@address.com";
     recipients: ["email1@address.com", "email2@address.com"];
-    
+
 If you wish to set Message Variables for each individual recipient, you just have to pass an array for each recipient.
 
     recipients: {
 	    "email@example.com": {
 		    'variable': 'Value'
-	    }, 
+	    },
 	    "email2@example.com": {
 		    'variable': 'Another Value'
 	    }
     };
-    
+
 Content will accept an array for HTML and plain text content.
 
     content: {
     	'text/html': '<strong>Sample bold content.</strong>',
     	'text/plain': 'Plain text goes here'
     };
-    
+
 Subject and from can be simple strings.
 
     subject: 'Subject Line';
     from: 'sender@example.org';
-    
+
 Templates can be called by using the template slug from your PostageApp Projects.
 
 	template: 'sample_template';
-	
+
 Message Variables needs to have an array passed into it with the global variable names and values.
 
     variables: {
@@ -100,15 +100,18 @@ Message Variables needs to have an array passed into it with the global variable
     	'variable2': 'Another variable'
     };
 
-Using the Callback Function
+Success and Error Callbacks
 -----
-The `sendMessage()` function in the PostageApp Node.JS plugin includes a callback argument. Callbacks are used to tell the PostageApp Node.JS plugin to execute some other code as soon as it is finished with sending your emails to PostageApp.
+The `sendMessage()` function takes two callback arguments - success and error. Callbacks are used to tell the PostageApp Node.JS plugin to execute some other code as soon as it is finished with sending your emails to PostageApp (or when an error occurs).
 
     var postageapp = require('postageapp')('YOUR API KEY HERE');
-    postageapp.sendMessage(options, function callback() {
-      // Additional code to execute after mail is delivered
+    postageapp.sendMessage(options, function (response, object) {
+        console.log('HTTP Status code: ', response.statusCode);
+        console.log('Message UID', object.response.uid);
+    }, function (message, object) {
+        console.log('Ack! An error has occurred: ', message);
     });
-    
+
 Getting Account Info
 -----
 You can get your PostageApp account info through the Node.JS plugin by using the `acountInfo()` function, which can be used as such:
@@ -127,12 +130,12 @@ You can the status of an individual message sent through PostageApp using the UI
 
 The `options` parameter in the `messageStatus()` function is a hash that contains one thing: the UID of the message you wish you retrieve.
 
-    var options = { 
+    var options = {
       	desiredUID: 'message UID here',
     }
 
 You will receive a JSON string back from the API server that should look something like this:
 
     {"response":{"status":"ok","uid":"message UID here"},"data":{"message_status":{"completed":1}}}
-    
+
 For more information about formatting of recipients, templates and variables please see the [PostageApp documentation](http://help.postageapp.com/kb/api/send_message).

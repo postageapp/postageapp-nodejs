@@ -15,8 +15,14 @@ describe('postageapp', function () {
                 content: "hello world",
                 recipients: 'test@null.postageapp.com'
             }, function(throwaway, r) {
-                var r = JSON.parse(r);
                 assert.equal('ok', r.response.status);
+                done();
+            });
+        });
+
+        it('should invoke the error callback for a bogus request', function(done) {
+            postageapp.sendMessage({}, function() {}, function(err, r) {
+                assert.equal('precondition_failed', r.response.status);
                 done();
             });
         });
