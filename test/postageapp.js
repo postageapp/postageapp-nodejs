@@ -3,6 +3,8 @@ var assert = require("assert"),
     postageapp = require('../lib/postageapp')(settings.apikey);
 
 describe('postageapp', function () {
+    this.timeout(5000);
+
     describe('version', function() {
         it('should return a version string', function() {
             assert.equal('string', typeof(postageapp.version()));
@@ -23,6 +25,20 @@ describe('postageapp', function () {
         it('should invoke the error callback for a bogus request', function(done) {
             postageapp.sendMessage({}, function() {}, function(err, r) {
                 assert.equal('precondition_failed', r.response.status);
+                done();
+            });
+        });
+
+        it('should work with utf8-encoded content', function(done) {
+            postageapp.sendMessage({
+                content: "hello snowman ☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃",
+                recipients: "test@null.postageapp.com"
+            }, function(throwaway, r) {
+                assert.equal('ok', r.response.status);
+                done();
+            }, function(err) {
+                console.log(err);
+                assert(false, 'should not have received an error')
                 done();
             });
         });
