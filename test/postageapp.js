@@ -42,5 +42,20 @@ describe('postageapp', function () {
                 done();
             });
         });
+
+        it('should support recipient override', function(done) {
+          postageapp.sendMessage({
+            content: 'recipient override test',
+            recipients: 'test@null.postageapp.com',
+            recipient_override: 'test2@null.postageapp.com'
+          }, function (throwaway, r) {
+            assert.equal('ok', r.response.status);
+            done();
+          }, function (err) {
+            console.log(err);
+            assert(false, 'should not have received an error');
+            done();
+          });
+        });
     });
 });
