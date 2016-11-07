@@ -1,7 +1,7 @@
 {
   "name": "postageapp",
-  "version": "1.1.5",
-  "node": ">= 0.6.0",
+  "version": "2.0.0",
+  "node": ">= 6.0.0",
   "homepage": "https://github.com/postageapp/postageapp-nodejs",
   "repository": {
     "type": "git",
@@ -16,20 +16,21 @@
       "name": "Scott Tadman",
       "email": "tadman@postageapp.com",
       "url": "http://postageapp.com/"
-    },
-    {
-      "name": "Jon Lim",
-      "email": "jon@postageapp.com"
     }
   ],
   "description": "Client library for PostageApp",
   "license": "MIT",
-  "main": "index",
+  "main": "lib/postageapp",
   "scripts": {
     "test": "mocha"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "commander": "^2.9.0",
+    "uuid": "^2.0.3"
   }
 }

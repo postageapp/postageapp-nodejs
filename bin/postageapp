@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+// == Imports ===============================================================
+
+const PostageApp = require('../lib/postageapp');
+
+// == Main ==================================================================
+
+var program = require('commander');
+
+var postageApp = new PostageApp();
+
+console.log(postageApp.version);
+console.log(postageApp.config());

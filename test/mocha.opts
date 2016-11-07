@@ -1,0 +1,4 @@
+--require test/helpers
+--recursive
+--timeout 10000
+--slow 300
