@@ -100,14 +100,12 @@ The `sendMessage()` function takes two callback arguments: success and error:
 
     var postageapp = require('postageapp')('ACCOUNT_API_KEY');
 
-    postageapp.sendMessage(options,
-      function (response, object) {
-        console.log('HTTP Status code: ', response.statusCode);
-        console.log('Message UID', object.response.uid);
-      }, function (err, object) {
-        console.log('Ack! An error has occurred: ', err);
-      }
-    );
+    postageapp.sendMessage(options).then((response) => {
+      console.log('HTTP Status code: ', response.statusCode);
+      console.log('Message UID', object.response.uid);
+    }).catch((error) => {
+      console.error(error);
+    });
 
 ## Getting Account Info
 
@@ -131,18 +129,13 @@ UID in `messageStatus()`.
 
     var postageapp = require('postageapp')('ACCOUNT_API_KEY');
 
-    postageapp.messageStatus(options);
-
-The `options` parameter in the `messageStatus()` function is a hash that
-contains one thing: the UID of the message you wish you retrieve:
-
-    var options = {
-      desiredUID: 'message UID here',
-    }
+    postageapp.messageStatus({ uid: 'PREVIOUS_UID' }).then((status) => {
+      console.log(status);
+    });
 
 You will receive a JSON string back from the API server that will look like:
 
-    {"response":{"status":"ok","uid":"message UID here"},"data":{"message_status":{"completed":1}}}
+    {"response":{"status":"ok","uid":"PREVIOUS_UID"},"data":{"message_status":{"completed":1}}}
 
 For more information about formatting of recipients, templates and variables
 please see the [PostageApp documentation](http://help.postageapp.com/kb/api/send_message).
