@@ -1,33 +1,35 @@
 {
   "name": "postageapp",
-  "version": "1.1.4",
-  "node": ">= 0.4.0",
+  "version": "1.1.5",
+  "node": ">= 0.6.0",
   "homepage": "https://github.com/postageapp/postageapp-nodejs",
   "repository": {
-    "type":"git",
-    "url":"https://github.com/postageapp/postageapp-nodejs"
+    "type": "git",
+    "url": "https://github.com/postageapp/postageapp-nodejs"
   },
   "author": {
     "name": "PostageApp",
-    "url":"http://postageapp.com/"
+    "url": "http://postageapp.com/"
   },
   "contributors": [
     {
-      "name":"Scott Tadman",
+      "name": "Scott Tadman",
       "email": "tadman@postageapp.com",
-      "url":"http://postageapp.com/"
+      "url": "http://postageapp.com/"
     },
     {
-      "name":"Jon Lim",
+      "name": "Jon Lim",
       "email": "jon@postageapp.com"
     }
   ],
-  "description": "Node.js package for sending emails through PostageApp",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/postageapp/postageapp-nodejs/blob/master/LICENSE"
-    }
-  ],
-  "main": "index"
+  "description": "Client library for PostageApp",
+  "license": "MIT",
+  "main": "index",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
 }

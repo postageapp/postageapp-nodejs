@@ -13,29 +13,9 @@ The most common method is via the Node Package Manager, NPM.
 
 ### NPM
 
-In your app directory type:
+In your application's main directory:
 
     npm install postageapp --save
-
-### Manual
-
-  * Download this: https://github.com/postageapp/postageapp-nodejs/tarball/master
-  * Unzip that download.
-  * Copy the resulting folder to `node_modules`
-  * Rename the folder you just copied to `postageapp`
-
-### GIT Submodule
-
-In your app directory type:
-
-    git submodule add git@github.com:postageapp/postageapp-nodejs.git plugins/postage
-    git submodule init
-    git submodule update
-
-### GIT Clone
-
-In your `node_modules` directory type
-<pre><code>git clone git@github.com:postageapp/postageapp-nodejs.git postageapp</code></pre>
 
 ## Sending a Message
 
