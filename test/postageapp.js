@@ -1,7 +1,15 @@
+var fs = require('fs');
 var assert = require('chai').assert;
 
-var settings = require('./config/test.json');
-var postageapp = require('../lib/postageapp')(settings.apikey);
+var apiKey = process.env.POSTAGEAPP_API_KEY;
+
+if (!apiKey) {
+  var settings = require('./config/test.json');
+
+  apiKey = settings.apiKey;
+}
+
+var postageapp = require('../lib/postageapp')(apiKey);
 
 describe('postageapp', function () {
   this.timeout(5000);
