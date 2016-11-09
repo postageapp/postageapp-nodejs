@@ -32,8 +32,8 @@ describe('PostageApp', () => {
 
     it('can send a test email', () => {
       return postageApp.sendMessage({
-        recipients: 'test@postageapp.com',
-        template: 'sample_child_template'
+        recipients: 'test@null.postageapp.com',
+        template: 'sample_child_template',
       }).then((response) => {
         assert.ok(response);
       });
