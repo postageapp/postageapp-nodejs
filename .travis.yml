@@ -2,8 +2,6 @@ language: node_js
 node_js:
   - "node"
   - "6"
-  - "5"
-  - "4"
 env:
   global:
     secure: "yKi8fgJrq3E69I4XaiYi7gc39x+rQR7Nnhx4kTtlB1bwGvPeAHr4giSY2gGacIUXwHRU8lz1nIxAETn02cZMkwevA4kosB4yVKGnn2KAILnr6wvJyXPVKkkV29ls4QpYRf4yW++7hbEKsiN3BZsr4OczHf/dKi+rzzWTbuAen1A="

@@ -11,6 +11,11 @@ to add personalized, transactional email to your application.
 There are several ways to install this plugin depending on your requirements.
 The most common method is via the Node Package Manager, NPM.
 
+This version of the library **requires Node v6** or more recent. For older
+Node.js installations you can use a version from the 1.1.x branch. The
+1.1.5 release should be current but uses Node.js callback methods instead of
+promises.
+
 ### NPM
 
 In your application's main directory:
@@ -112,7 +117,8 @@ The `sendMessage()` function takes two callback arguments: success and error:
 You can get your PostageApp account info through the Node.js plugin by using the
 `accountInfo()` function, which can be used as such:
 
-    var postageapp = require('postageapp')('ACCOUNT_API_KEY');
+    const PostageApp = require('postageapp');
+    var postageapp = new PostageApp('ACCOUNT_API_KEY');
 
     postageapp.accountInfo();
 
@@ -127,7 +133,8 @@ UID that your API call provides. The PostageApp plugin creates a unique
 UID for each message sent through by using `Date.getTime()`. You then use that
 UID in `messageStatus()`.
 
-    var postageapp = require('postageapp')('ACCOUNT_API_KEY');
+    const PostageApp = require('postageapp');
+    var postageapp = new PostageApp('ACCOUNT_API_KEY');
 
     postageapp.messageStatus({ uid: 'PREVIOUS_UID' }).then((status) => {
       console.log(status);
