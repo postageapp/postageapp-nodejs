@@ -146,3 +146,42 @@ You will receive a JSON string back from the API server that will look like:
 
 For more information about formatting of recipients, templates and variables
 please see the [PostageApp documentation](http://help.postageapp.com/kb/api/send_message).
+
+## Configuration
+
+### File Format
+
+The configuration is read in from a JSON file that has this structure:
+
+    {
+      "host": "api.postageapp.com",
+      "port": "443",
+      "secure": secure,
+      "apiKey": "__PROJECT_API_KEY__"
+    }
+
+The only one that's required is the `apiKey` value, the others are optional
+and will default to what's shown here.
+
+### Environment Variables
+
+You can specify the configuration for your PostageApp account via a series of
+environment variables, in a config file, or in a config file path expressed as
+an environment variable:
+
+ * `POSTAGEAPP_CONFIG` - Path to a JSON configuration file that will be loaded.
+ * `POSTAGEPPP_API_KEY` - Which API key to use by default.
+ * `POSTAGEAPP_HOST` - Which host to contact for the API (default `api.postageapp.com`)
+ * `POSTAGEAPP_PORT` - Which port to contact for the API (default 443)
+ * `POSTAGEAPP_SECURE` - Use HTTPS to connect to the API (default 1)
+
+Any of these settings can be overruled by constructing a `PostageApp`
+instance with different options. For example, if you're sending calls through
+a custom HTTP proxy:
+
+    var postageapp = new PostageApp({
+      host: 'my.proxy',
+      port: 8080,
+      secure: false,
+      apiKey: '__PROJECT_API_KEY'
+    });
