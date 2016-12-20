@@ -41,8 +41,10 @@ example API call:
     var options = {
       recipients: "email@example.com",
 
-      subject: "Subject Line",
-      from: "sender@example.org",
+      headers: {
+        subject: "Subject Line",
+        from: "sender@example.org"
+      },
 
       content: {
         'text/html': '<strong>Sample bold content.</strong>',
