@@ -26,13 +26,16 @@ In your application's main directory:
 
 When you require the library, make sure to specify your API key:
 
-    var postageapp = require('postageapp')('ACCOUNT_API_KEY');
+    const PostageApp = require('postageapp')
+
+    var postageapp = new PostageApp('ACCOUNT_API_KEY');
 
 After that, you should be good to go. Load the module in your app and call the
 `sendMessage` function. Here is a sample of how to use it:
 
-    var postageapp = require('postageapp')('ACCOUNT_API_KEY');
-    postageapp.sendMessage(options, function callback() {});
+    postageapp.sendMessage(options).then((response) => {
+      console.log(response);
+    });
 
 The `options` parameter on the `sendMessage()` function is a hash that contains
 all of the arguments that you will be using in your API call. Here is an
